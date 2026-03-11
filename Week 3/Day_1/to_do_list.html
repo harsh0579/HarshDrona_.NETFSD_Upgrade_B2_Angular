@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>To-Do List App</title>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+
+body{
+    font-family: Arial;
+    margin:40px;
+}
+
+#todoContainer{
+    width:400px;
+}
+
+input{
+    padding:8px;
+    width:250px;
+}
+
+button{
+    padding:8px;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+li{
+    padding:8px;
+    border:1px solid #ccc;
+    margin-top:5px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.completed{
+    text-decoration: line-through;
+    color:gray;
+}
+
+.deleteBtn{
+    background:red;
+    color:white;
+    border:none;
+    padding:5px 8px;
+    cursor:pointer;
+}
+
+.counter{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>To-Do List</h2>
+
+<div id="todoContainer">
+
+<input type="text" id="taskInput" placeholder="Enter a task">
+<button id="addTask">Add</button>
+
+<ul id="taskList"></ul>
+
+<div class="counter">
+Total Tasks: <span id="total">0</span> |
+Completed: <span id="completed">0</span>
+</div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+let total = 0;
+let completed = 0;
+
+// Add task
+$("#addTask").click(function(){
+
+let task = $("#taskInput").val();
+
+if(task.trim() !== ""){
+
+$("#taskList").append(
+"<li><span class='taskText'>" + task + "</span> <button class='deleteBtn'>Delete</button></li>"
+);
+
+total++;
+$("#total").text(total);
+
+$("#taskInput").val("");
+
+}
+
+});
+
+// Mark task complete
+$("#taskList").on("click",".taskText",function(){
+
+$(this).toggleClass("completed");
+
+if($(this).hasClass("completed")){
+completed++;
+}else{
+completed--;
+}
+
+$("#completed").text(completed);
+
+});
+
+// Delete task
+$("#taskList").on("click",".deleteBtn",function(){
+
+let isCompleted = $(this).siblings(".taskText").hasClass("completed");
+
+if(isCompleted){
+completed--;
+$("#completed").text(completed);
+}
+
+total--;
+$("#total").text(total);
+
+$(this).parent().remove();
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

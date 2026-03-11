@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ Toggle Section</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            margin:40px;
+        }
+
+        .faq-container{
+            width:500px;
+        }
+
+        .question{
+            background:#f2f2f2;
+            padding:10px;
+            margin-top:5px;
+            cursor:pointer;
+            border:1px solid #ccc;
+        }
+
+        .answer{
+            display:none;
+            padding:10px;
+            border:1px solid #ccc;
+            border-top:none;
+        }
+
+        .active{
+            background:#d4edda;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-container">
+
+    <div class="question">1. What courses are offered?</div>
+    <div class="answer">We offer Data Analytics, Full Stack Development, and Python courses.</div>
+
+    <div class="question">2. Do you provide placement support?</div>
+    <div class="answer">Yes, we provide placement assistance and interview preparation.</div>
+
+    <div class="question">3. Are classes available online?</div>
+    <div class="answer">Yes, both online and offline classes are available.</div>
+
+    <div class="question">4. What is the duration of the course?</div>
+    <div class="answer">Most courses range from 3 to 6 months depending on the program.</div>
+
+    <div class="question">5. Do I get a certificate?</div>
+    <div class="answer">Yes, you will receive a certificate after successful completion.</div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+    $(".question").click(function(){
+
+        // toggle answer
+        $(this).next(".answer").slideToggle();
+
+        // highlight selected question
+        $(this).toggleClass("active");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

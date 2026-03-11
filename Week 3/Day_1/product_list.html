@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Cart</title>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+body{
+    font-family: Arial;
+    margin:40px;
+}
+
+#cart{
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.product{
+    border:1px solid #ccc;
+    padding:10px;
+    margin-bottom:10px;
+    width:300px;
+}
+
+button{
+    padding:5px 10px;
+}
+
+.msg{
+    margin-left:10px;
+    color:green;
+    font-size:14px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Shopping Cart</h2>
+
+<div id="cart">
+🛒 Cart Items: <span id="cartCount">0</span>
+</div>
+
+<div class="product">
+<h3>Product 1 - Laptop</h3>
+<button class="addCart">Add to Cart</button>
+<span class="msg"></span>
+</div>
+
+<div class="product">
+<h3>Product 2 - Headphones</h3>
+<button class="addCart">Add to Cart</button>
+<span class="msg"></span>
+</div>
+
+<div class="product">
+<h3>Product 3 - Smartphone</h3>
+<button class="addCart">Add to Cart</button>
+<span class="msg"></span>
+</div>
+
+<div class="product">
+<h3>Product 4 - Smartwatch</h3>
+<button class="addCart">Add to Cart</button>
+<span class="msg"></span>
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+let count = 0;
+
+$(".addCart").click(function(){
+
+    count++;
+
+    // update cart counter
+    $("#cartCount").text(count);
+
+    // disable button
+    $(this).prop("disabled", true);
+
+    // change button text
+    $(this).text("Added");
+
+    // confirmation message
+    $(this).siblings(".msg").text("Item added to cart!");
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
