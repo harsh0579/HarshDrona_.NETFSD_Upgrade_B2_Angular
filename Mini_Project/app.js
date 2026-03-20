@@ -1,6 +1,6 @@
 let events = JSON.parse(localStorage.getItem("events")) || [];
 
-/* ================= LOGIN ================= */
+/* OGIN  */
 
 function login(e){
 e.preventDefault()
@@ -16,7 +16,7 @@ alert("Invalid Credentials")
 }
 }
 
-/* ================= CHECK LOGIN ================= */
+/* CHECK LOGIN */
 
 function checkLogin(){
 if(!localStorage.getItem("login")){
@@ -26,14 +26,14 @@ window.location="login.html"
 displayAdminEvents()
 }
 
-/* ================= LOGOUT ================= */
+/*  LOGOUT  */
 
 function logout(){
 localStorage.removeItem("login")
 window.location="login.html"
 }
 
-/* ================= ADD EVENT ================= */
+/* ADD EVENT */
 
 document.getElementById("eventForm")?.addEventListener("submit",function(e){
 
@@ -57,7 +57,7 @@ this.reset()
 
 })
 
-/* ================= DISPLAY EVENTS ================= */
+/* DISPLAY EVENTS  */
 
 function displayAdminEvents(list=events){
 
@@ -88,7 +88,7 @@ container.innerHTML+=`
 })
 }
 
-/* ================= DELETE ================= */
+/* DELETE */
 
 function deleteEvent(i){
 events.splice(i,1)
@@ -96,7 +96,7 @@ localStorage.setItem("events",JSON.stringify(events))
 displayAdminEvents()
 }
 
-/* ================= SEARCH ================= */
+/*  SEARCH  */
 
 function searchEvent(){
 
@@ -111,14 +111,14 @@ e.category.toLowerCase().includes(value)
 displayAdminEvents(filtered)
 }
 
-/* ================= REGISTER ================= */
+/*  REGISTER  */
 
 function registerEvent(e){
 e.preventDefault()
 alert("You are successfully registered to this event!")
 }
 
-/* ================= CONTACT ================= */
+/*  CONTACT */
 
 function contactSubmit(e){
 e.preventDefault()
